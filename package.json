@@ -1,0 +1,12 @@
+{
+  "name": "react-vxdag",
+  "version": "1.0.0",
+  "description": "React dag visualization library written with visx",
+  "main": "index.js",
+  "repository": "git@github.com:franreysaycon/react-vxdag.git",
+  "author": "Franrey Anthony S. Saycon <franreysaycon@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "tslint-config-prettier": "^1.18.0"
+  }
+}
