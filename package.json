@@ -40,6 +40,10 @@
   },
   "dependencies": {
     "@types/react-dom": "^16.9.8",
+    "@visx/group": "^1.0.0",
+    "@visx/network": "^1.0.0",
+    "@visx/shape": "^1.0.0",
+    "@visx/text": "^1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.0"
