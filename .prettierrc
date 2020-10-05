@@ -1,0 +1,15 @@
+{
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "printWidth": 120,
+    "tabWidth": 2,
+    "newline-before-return": true,
+    "no-duplicate-variable": [
+        true,
+        "check-parameters"
+    ],
+    "no-var-keyword": true,
+    "arrowParens": "avoid",
+    "endOfLine": "auto"
+}
