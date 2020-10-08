@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DefaultNode from './Node/DefaultNode';
+import DAG from './Graph/Graph';
 
 const Container = styled.svg`
   width: 100vw;
@@ -10,7 +10,7 @@ const Container = styled.svg`
 
 const Sample: React.FC = () => (
   <Container>
-    <DefaultNode text={'Hello World'} height={200} width={200} padding={20} />
+    <DAG />
   </Container>
 );
 
