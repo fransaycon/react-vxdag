@@ -17,7 +17,7 @@ const processGraph = (graph: dagre.graphlib.Graph): Graph<Link<ProcessedNode>, P
   });
 
   const processedEdges = graph.edges().map(e => {
-    const sourceData = graph.node(e.w);
+    const sourceData = graph.node(e.v);
     const targetData = graph.node(e.w);
     return {
       source: {
