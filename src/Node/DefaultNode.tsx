@@ -3,7 +3,7 @@ import { Bar } from '@visx/shape';
 import { Group } from '@visx/group';
 import styled from 'styled-components';
 import { NodeProvidedProps } from '@visx/network/lib/types';
-import { ProcessedNode } from '../lib/types';
+import { ProcessedNode } from '../types/graph';
 
 const StyledBar = styled(Bar)`
   stroke: black;
