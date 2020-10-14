@@ -4,8 +4,8 @@ import Graph from './dagre/Graph';
 import DefaultNode from '../Node/DefaultNode';
 import { DAGProps } from '../types/module';
 
-const DAG: React.FC<DAGProps> = ({ nodes, edges, zoomable, draggable }) => {
-  const graph = new Graph(nodes, edges);
+const DAG: React.FC<DAGProps> = ({ nodes, edges, zoomable, draggable, options }) => {
+  const graph = new Graph(nodes, edges, options);
   graph.initialize()
   const processedGraph = graph.getProcessedGraph()
 

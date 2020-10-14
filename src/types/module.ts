@@ -1,4 +1,4 @@
-import { Edge, Node } from "./graph";
+import { Edge, Node, Options } from "./graph";
 
 export interface ModuleProps {
     width: number | string;
@@ -11,6 +11,7 @@ export interface DAGProps<T = {}> {
     draggable?: boolean;
     nodes: Node<T>[];
     edges: Edge[];
+    options: Options;
 }
 
 export interface ReactVxDagProps<T = {}> extends ModuleProps, DAGProps<T> {
