@@ -1,6 +1,6 @@
 import React from 'react';
 import { DefaultLink, Graph as VisxGraph } from '@visx/network';
-import Graph from '../lib/dagre/Graph';
+import Graph from './dagre/Graph';
 import DefaultNode from '../Node/DefaultNode';
 import { DAGProps } from '../types/module';
 

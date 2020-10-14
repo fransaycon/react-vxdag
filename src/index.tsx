@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import DAG from './Graph/DAG';
-import pixelizeInteger from './lib/helpers/pixelizeInteger';
+import pixelizeInteger from './lib/pixelizeInteger';
 import { ModuleProps, ReactVxDagProps } from './types/module';
 
 
