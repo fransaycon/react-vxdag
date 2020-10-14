@@ -21,7 +21,7 @@ const Sample = () => {
       id: 'D',
       data: {},
     },
-  ])
+  ]);
   const [edges] = useState<Edge[]>([
     { source: 'A', target: 'B' },
     { source: 'A', target: 'C' },
@@ -31,4 +31,4 @@ const Sample = () => {
   return <ReactVxDag nodes={nodes} edges={edges} width="100vw" height="100vh" backgroundColor="e2e2e2" />
 }
 
-const element = ReactDOM.render(<Sample />, document.getElementById('main'));
+ReactDOM.render(<Sample />, document.getElementById('main'));
