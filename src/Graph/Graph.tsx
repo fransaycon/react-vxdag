@@ -1,37 +1,42 @@
-import React from 'react';
-import { Graph as Network, DefaultLink } from '@visx/network';
-import { Graph, Link } from '@visx/network/lib/types';
-import { Node } from './types';
+import React, { useState } from 'react';
+import { DefaultLink, Graph as VisxGraph } from '@visx/network';
+import { Edge, Node } from '../types/graph';
+import Graph from '../lib/dagre/Graph';
 import DefaultNode from '../Node/DefaultNode';
 
-const nodes: Node[] = [
-  {
-    x: 150,
-    y: 150,
-    id: 'A',
-  },
-  {
-    x: 150,
-    y: 300,
-    id: 'B',
-  },
-  {
-    x: 250,
-    y: 500,
-    id: 'C',
-  },
-];
+const DAG: React.FC = () => {
+  const [nodes] = useState<Node[]>([
+    {
+      id: 'A',
+      data: {},
+    },
+    {
+      id: 'B',
+      data: {},
+    },
+    {
+      id: 'C',
+      data: {},
+    },
+    {
+      id: 'D',
+      data: {},
+    },
+  ])
+  const [edges] = useState<Edge[]>(
+    [
+      { source: 'A', target: 'B' },
+      { source: 'A', target: 'C' },
+      { source: 'A', target: 'D' },
+    ]
+  );
 
-const links: Link<Node>[] = [
-  { source: nodes[0], target: nodes[1] },
-  { source: nodes[1], target: nodes[2] },
-];
+  const graph = new Graph(nodes, edges);
+  graph.initialize()
+  const processedGraph = graph.getProcessedGraph()
+  console.log(processedGraph)
 
-const graph: Graph<Link<Node>, Node> = {
-  links,
-  nodes,
+  return <VisxGraph nodeComponent={DefaultNode} linkComponent={DefaultLink} graph={processedGraph} />;
 };
-
-const DAG: React.FC = () => <Network graph={graph} linkComponent={DefaultLink} nodeComponent={DefaultNode} />;
 
 export default DAG;

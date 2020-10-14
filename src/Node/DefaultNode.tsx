@@ -3,7 +3,7 @@ import { Bar } from '@visx/shape';
 import { Group } from '@visx/group';
 import styled from 'styled-components';
 import { NodeProvidedProps } from '@visx/network/lib/types';
-import { Node } from '../Graph/types';
+import { ProcessedNode } from '../types/graph';
 
 const StyledBar = styled(Bar)`
   stroke: black;
@@ -11,16 +11,14 @@ const StyledBar = styled(Bar)`
   fill: white;
 `;
 
-const DefaultNode: React.FC<NodeProvidedProps<Node>> = ({ node }) => {
-  const { id } = node;
-  const width = 50;
-  const height = 50;
+const DefaultNode: React.FC<NodeProvidedProps<ProcessedNode>> = ({ node }) => {
+  const { label, width, height } = node;
 
   return (
     <Group top={0} left={0}>
       <StyledBar x={-width / 2} y={-height / 2} width={width} height={height} />
       <text dy=".33em" fontSize={9} fontFamily="Arial" textAnchor="middle" fill="black">
-        {id}
+        {label}
       </text>
     </Group>
   );
