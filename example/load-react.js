@@ -28,14 +28,23 @@ const Sample = () => {
         label: 'DATA_D',
       },
     },
+    {
+      id: 'E',
+      data: {
+        label: 'DATA_E'
+      }
+    }
   ]);
   const [edges] = useState([
     { source: 'A', target: 'B' },
     { source: 'A', target: 'C' },
     { source: 'A', target: 'D' },
+    { source: 'B', target: 'E' },
+    { source: 'C', target: 'E' },
+    { source: 'D', target: 'E' },
   ]);
 
-  return <ReactVxDag nodes={nodes} edges={edges} width="100vw" height="100vh" backgroundColor="e2e2e2" />
+  return <ReactVxDag nodes={nodes} edges={edges} width="100vw" height="100vh" backgroundColor="e2e2e2" padding={20} />
 }
 
 ReactDOM.render(<Sample />, document.getElementById('main'));

@@ -1,10 +1,8 @@
 import dagre from 'dagre';
-import { Graph as VisxGraph } from '@visx/network/lib/types'
-import { Edge, Node, Options, ProcessedNode } from '../../types/graph';
-import { Link } from '@visx/network/lib/types';
+import { DagGraph, Edge, Node, Options } from '../../types/graph';
 import GraphAbstract from '../GraphAbstract';
 
-class Graph extends GraphAbstract<dagre.graphlib.Graph, VisxGraph<Link<ProcessedNode>, ProcessedNode>> {
+class DagreGraph extends GraphAbstract<dagre.graphlib.Graph, DagGraph> {
   private graphOptions: Options;
 
   constructor(nodes: Node[], edges: Edge[], graphOptions: Options = {
@@ -55,36 +53,32 @@ class Graph extends GraphAbstract<dagre.graphlib.Graph, VisxGraph<Link<Processed
         y,
         width,
         height,
-        label,
+        id: label,
       };
     });
 
     const processedEdges = this.graph.edges().map(e => {
       const sourceData = this.graph.node(e.v);
       const targetData = this.graph.node(e.w);
+
       return {
+        points: this.graph.edge({ v: e.v, w: e.w }).points,
         source: {
           x: sourceData.x,
           y: sourceData.y,
-          width: sourceData.width,
-          height: sourceData.height,
-          label: sourceData.label,
         },
         target: {
           x: targetData.x,
           y: targetData.y,
-          width: targetData.width,
-          height: targetData.height,
-          label: targetData.label,
         },
       };
     });
 
     return {
       nodes: processedNodes,
-      links: processedEdges,
+      edges: processedEdges,
     };
   }
 }
 
-export default Graph
+export default DagreGraph

@@ -2,13 +2,27 @@ export interface Node<T = {}> {
   id: string;
   data?: T;
 }
-
-export interface ProcessedNode {
+export interface DagPoint {
   x: number;
   y: number;
-  label: string | undefined;
+}
+
+export interface DagNode<T = {}> extends DagPoint {
+  id: string | undefined;
   width: number;
   height: number;
+  data?: T | undefined;
+}
+
+export interface DagEdge {
+  points?: DagPoint[];
+  source: DagPoint;
+  target: DagPoint;
+}
+
+export interface DagGraph<T = {}> {
+  nodes: DagNode<T>[];
+  edges: DagEdge[];
 }
 
 export interface Edge {

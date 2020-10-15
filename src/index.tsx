@@ -1,23 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
-import DAG from './Graph/DAG';
+import Dag from './Graph/Dag';
 import pixelizeInteger from './lib/pixelizeInteger';
 import { ModuleProps, ReactVxDagProps } from './types/module';
-
 
 const Container = styled.svg`
   ${ (props: ModuleProps) => cssContainer(props) }
 `
 
-const cssContainer = ({ width, height, backgroundColor } : ModuleProps): string => `
+const cssContainer = ({ width, height, backgroundColor, padding } : ModuleProps): string => `
   width: ${pixelizeInteger(width)};
   height: ${pixelizeInteger(height)};
   background-color: ${backgroundColor};
+  padding: ${padding};
 `
 
-const ReactVxDag: React.FC<ReactVxDagProps> = ({ width, height, backgroundColor, nodes, edges, zoomable = false, draggable = false}) => (
-  <Container width={width} height={height} backgroundColor={backgroundColor}>
-    <DAG nodes={nodes} edges={edges} zoomable={zoomable} draggable={draggable} />
+const ReactVxDag: React.FC<ReactVxDagProps> = ({
+  backgroundColor,
+  edges,
+  height,
+  nodes,
+  padding,
+  width,
+  draggable = false,
+  zoomable = false,
+}) => (
+  <Container
+    backgroundColor={backgroundColor}
+    height={height}
+    padding={padding}
+    width={width}
+  >
+    <Dag nodes={nodes} edges={edges} zoomable={zoomable} draggable={draggable} />
   </Container>
 );
 
