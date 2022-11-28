@@ -1,6 +1,6 @@
 import { Edge, Node } from '../types/graph';
 
-abstract class GraphAbstract<T, ProcessedGraph> {
+abstract class GraphAbstract<T, Graph> {
   protected graph: T;
   protected nodes: Node[];
   protected edges: Edge[];
@@ -12,7 +12,7 @@ abstract class GraphAbstract<T, ProcessedGraph> {
   }
 
   public abstract initialize(): void;
-  public abstract getProcessedGraph(): ProcessedGraph;
+  public abstract getProcessedGraph(): Graph;
 }
 
 export default GraphAbstract
